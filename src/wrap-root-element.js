@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import StoreContext, { makeDefaultContext } from './StoreContext'
 
 const ShopifyContextWrapper = ({ children, stores }) => {
-  const shopNames = Object.keys(stores)
-  const defaultShop = shopNames[0] || null
+  const storeKeys = Object.keys(stores)
+  const defaultShop = storeKeys[0] || null
   const defaultConfig = stores[defaultShop] || null
 
   const [ store, setStore ] = useState({
-    activeStoreName: defaultShop,
+    activeStoreKey: defaultShop,
     ...makeDefaultContext(defaultConfig),
   })
 
@@ -19,7 +19,7 @@ const ShopifyContextWrapper = ({ children, stores }) => {
     }
 
     setStore({
-      activeStoreName: storeKey,
+      activeStoreKey: storeKey,
       ...makeDefaultContext(storeConfig),
     })
   }
@@ -28,7 +28,7 @@ const ShopifyContextWrapper = ({ children, stores }) => {
     <StoreContext.Provider
       value={{
         ...store,
-        shopNames,
+        storeKeys,
         changeStore,
       }}
     >
