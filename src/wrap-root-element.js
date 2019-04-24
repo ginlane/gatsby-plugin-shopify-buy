@@ -3,37 +3,34 @@ import StoreContext, { makeDefaultContext } from './StoreContext'
 
 const ShopifyContextWrapper = ({ children, stores }) => {
   const shopNames = Object.keys(stores)
+  const defaultShop = shopNames[0] || null
+  const defaultConfig = stores[defaultShop] || null
 
-  const changeStore = shopName => {
-    const accessToken = stores[shopName]
-    if (!shopName || !accessToken) {
-      console.error(`invalid configuration for shop: ${shopName}`)
+  const [ store, setStore ] = useState({
+    activeStoreName: defaultShop,
+    ...makeDefaultContext(defaultConfig),
+  })
+
+  const changeStore = storeKey => {
+    const storeConfig = stores[storeKey]
+    if (!storeConfig) {
+      console.error(`invalid configuration for shop: ${storeKey}`)
       return
     }
 
-    console.log(`setting store to ${ shopName }, ${ accessToken }`)
     setStore({
-      ...makeDefaultContext({
-        shopName,
-        accessToken,
-      })
+      activeStoreName: storeKey,
+      ...makeDefaultContext(storeConfig),
     })
   }
 
-  const defaultShop = shopNames.length > 0 ? shopNames[0] : null
-  const defaultConfig = defaultShop ? {
-    shopName: defaultShop,
-    accessToken: stores[defaultShop]
-  } : null
-
-  const [ store, setStore ] = useState({
-    ...makeDefaultContext(defaultConfig),
-    changeStore: changeStore,
-  })
-
   return (
     <StoreContext.Provider
-      value={store}
+      value={{
+        ...store,
+        shopNames,
+        changeStore,
+      }}
     >
       { children }
     </StoreContext.Provider>

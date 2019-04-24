@@ -7,5 +7,5 @@ import StoreContext, {
 export {
   withStoreContext,
   makeDefaultContext,
-  StoreContext as Default
+  StoreContext as default
 }

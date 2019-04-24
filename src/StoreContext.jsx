@@ -5,20 +5,10 @@ const defaultStoreContext = {
   client: null,
 }
 
-const makeClient = ({ shopName, accessToken }) => (
-  Client.buildClient({
-    domain: `${ shopName }.myshopify.com`,
-    storefrontAccessToken: accessToken,
-  })
-)
-
-const makeDefaultContext = ({ shopName, accessToken }) => (
+const makeDefaultContext = config => (
   {
     ...defaultStoreContext,
-    client: makeClient({
-      shopName,
-      accessToken
-    }),
+    client: Client.buildClient(config),
   }
 )
 
