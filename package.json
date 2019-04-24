@@ -16,10 +16,10 @@
   ],
   "author": "Pattern",
   "license": "MIT",
-  "homepage": "https://github.com/lsirivong/gatsby-plugin-modal-routing",
-  "bugs": "https://github.com/lsirivong/gatsby-plugin-modal-routing/issues",
+  "homepage": "https://github.com/ginlane/gatsby-plugin-shopify-buy",
+  "bugs": "https://github.com/ginlane/gatsby-plugin-shopify-buy/issues",
   "repository": {
-    "url": "https://github.com/lsirivong/gatsby-plugin-modal-routing",
+    "url": "https://github.com/ginlane/gatsby-plugin-shopify-buy",
     "type": "git"
   },
   "files": [
