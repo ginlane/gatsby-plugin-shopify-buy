@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-shopify-buy",
   "description": "Gatsby plugin to add shopify-buy sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
