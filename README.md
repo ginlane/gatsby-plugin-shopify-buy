@@ -16,7 +16,7 @@ Add the plugin to your `gatsby-config.js`:
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-plugin-modal-routing`,
+      resolve: `gatsby-plugin-shopify-buy`,
       options: {
         stores: {
           anyKeyForYourStore: {
