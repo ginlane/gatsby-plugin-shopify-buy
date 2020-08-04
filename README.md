@@ -25,7 +25,7 @@ module.exports = {
           },
           anotherStore: {
             domain: `store-with-custom-domain.com`,
-            accessToken: `xxxxx,
+            accessToken: `xxxxx`,
           },
         }
       }
@@ -62,7 +62,7 @@ class StoreInfo extends React.Component {
   }
 
   render() {
-    cons { shopName } = this.state
+    const { shopName } = this.state
     return (
       <>
         <h2>{ this.state.shopName || 'loading...' }</h2>
@@ -113,7 +113,7 @@ class StoreInfo extends React.Component {
   }
 
   render() {
-    cons { shopName } = this.state
+    const { shopName } = this.state
     return (
       <>
         <h2>{ this.state.shopName || 'loading...' }</h2>
